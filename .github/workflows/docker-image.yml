@@ -35,4 +35,4 @@ jobs:
         file: src/Dockerfile
         context: src
         push: true
-        tags: ${{github.run_number}}
+        tags: rasmus256docker/wordsolver:${{github.run_number}}
