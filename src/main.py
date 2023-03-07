@@ -3,12 +3,12 @@ import os
 inputs = os.getenv("INPUTS").replace("[", "").replace("]", "").split(" ")
 
 print(f"was given these ínputs: {inputs}")
+print(x[:len(x)-1])
+print(x[len(x)-1:])
+operands = inputs[:len(inputs)-1]
+result = inputs[len(inputs)-1:]
 
-firstinput = os.getenv("FIRST")
-secondinput = os.getenv("SECOND")
-thirdinput = os.getenv("THIRD")
-
-print(f"started with these parameter: {firstinput},{secondinput},{thirdinput}")
+print(f"started with these operands: {operands}, result: {result}")
 
 def calculateSum(name, translations):
     sum = 0
@@ -16,8 +16,11 @@ def calculateSum(name, translations):
       sum = sum + translations[l]*pow(10, idx)
     return sum
 def determineWhetherMatch(translations):
-    global firstinput, secondinput, thirdinput
-    return calculateSum(firstinput, translations) + calculateSum(secondinput, translations) == calculateSum(thirdinput, translations)
+    global operands, result
+    sum_of_operands = []
+    for op in operands:
+        sum_of_operands.append(calculateSum(op, translations))
+    return sum(sum_of_operands) == calculateSum(result, translations)
 def iterateoverLetters(letters, translations, level):
     if len(letters) == 0:
         if determineWhetherMatch(translations):
@@ -28,7 +31,7 @@ def iterateoverLetters(letters, translations, level):
             tr[letters[0]] = i
             iterateoverLetters(letters[1::], tr, level+1)
 
-letters = list(set(''.join([firstinput,secondinput,thirdinput])))
+letters = list(set(''.join(inputs)))
 letters.sort()
 
 print(f"These are the unique letters that we will look at for your input: {letters}")
