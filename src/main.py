@@ -37,4 +37,6 @@ translations = {}
 for i in letters:
     translations[i] = 0
 
+print(f"The following are the solutions to the equation {'+'.join(opreands)} = {result}"
+
 iterateoverLetters(letters, translations, 0)
