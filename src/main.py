@@ -26,7 +26,7 @@ def iterateoverLetters(letters, translations, level):
     if len(letters) == 0:
         if determineWhetherMatch(translations):
             print(translations)
-            if len(set(translations.values())) > len(set(bestResult)):
+            if len(set(translations.values())) > len(set(bestResult.values())):
                 bestResult = translations
     if len(letters) >0:
         for i in range(10):
@@ -45,3 +45,5 @@ for i in letters:
 print(f"The following are the solutions to the equation {'+'.join(operands)} = {result}")
 
 iterateoverLetters(letters, translations, 0)
+
+print(f"The best (Most unique) solution is probably {bestResult} with {len(set(bestResult.values()))}")
