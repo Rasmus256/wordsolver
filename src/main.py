@@ -1,5 +1,9 @@
 import os
 
+inputs = os.getenv("INPUTS").split(",")
+
+print(f"was given these ínputs: {inputs}")
+
 firstinput = os.getenv("FIRST")
 secondinput = os.getenv("SECOND")
 thirdinput = os.getenv("THIRD")
