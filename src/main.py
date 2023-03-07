@@ -3,8 +3,6 @@ import os
 inputs = os.getenv("INPUTS").replace("[", "").replace("]", "").split(" ")
 
 print(f"was given these ínputs: {inputs}")
-print(x[:len(x)-1])
-print(x[len(x)-1:])
 operands = inputs[:len(inputs)-1]
 result = inputs[len(inputs)-1:]
 
