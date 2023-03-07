@@ -1,6 +1,6 @@
 import os
 
-inputs = os.getenv("INPUTS").split(",")
+inputs = os.getenv("INPUTS").replace("[", "").replace("]", "").split(" ")
 
 print(f"was given these ínputs: {inputs}")
 
