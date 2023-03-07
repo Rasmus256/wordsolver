@@ -6,6 +6,8 @@ print(f"was given these ínputs: {inputs}")
 operands = inputs[:len(inputs)-1]
 result = inputs[len(inputs)-1:][0]
 
+bestResult = {}
+
 print(f"started with these operands: {operands}, result: {result}")
 
 def calculateSum(name, translations):
@@ -20,9 +22,12 @@ def determineWhetherMatch(translations):
         sum_of_operands.append(calculateSum(op, translations))
     return sum(sum_of_operands) == calculateSum(result, translations)
 def iterateoverLetters(letters, translations, level):
+    global bestResult
     if len(letters) == 0:
         if determineWhetherMatch(translations):
             print(translations)
+            if len(set(translations.values())) > len(set(bestResult)):
+                bestResult = translations
     if len(letters) >0:
         for i in range(10):
             tr = translations.copy()
