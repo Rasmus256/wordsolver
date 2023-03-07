@@ -1,7 +1,7 @@
 import os
 
 inputs = os.getenv("INPUTS").replace("[", "").replace("]", "").split(" ")
-
+reportFreq = int(os.getenv("REPORT_FREQ"))
 print(f"was given these ínputs: {inputs}")
 operands = inputs[:len(inputs)-1]
 result = inputs[len(inputs)-1:][0]
@@ -24,9 +24,10 @@ def determineWhetherMatch(translations):
 def iterateoverLetters(letters, translations, level):
     global bestResult
     global countIterations
+    global reportFreq
     if len(letters) == 0:
         countIterations = countIterations+1
-        if countIterations % 10000 == 0:
+        if countIterations % reportFreq == 0:
             print(countIterations)
         if determineWhetherMatch(translations):
             print(translations)
