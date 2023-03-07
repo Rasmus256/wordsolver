@@ -26,7 +26,7 @@ def iterateoverLetters(letters, translations, level):
     global countIterations
     if len(letters) == 0:
         countIterations = countIterations+1
-        if countIterations % 10000:
+        if countIterations % 10000 == 0:
             print(countIterations)
         if determineWhetherMatch(translations):
             print(translations)
