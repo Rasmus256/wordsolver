@@ -4,7 +4,7 @@ inputs = os.getenv("INPUTS").replace("[", "").replace("]", "").split(" ")
 
 print(f"was given these ínputs: {inputs}")
 operands = inputs[:len(inputs)-1]
-result = inputs[len(inputs)-1:]
+result = inputs[len(inputs)-1:][0]
 
 print(f"started with these operands: {operands}, result: {result}")
 
